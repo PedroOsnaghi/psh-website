@@ -1,0 +1,49 @@
+---
+import LabelSection from "@components/LabelSection.astro";
+import Marquee from "@components/Marquee.astro";
+
+const marqueeCollection = [
+  "/logos/UtnLogo.svg",
+  "/logos/ProboardLogo.svg",
+  "/logos/FireSchoolLogo.svg",
+  "/logos/MsaLogo.svg",
+  "/logos/ProboardLogo.svg",
+  "/logos/UtnLogo.svg",
+  "/logos/ProboardLogo.svg",
+  "/logos/FireSchoolLogo.svg",
+];
+---
+
+<section class="py-12 sm:py-24 bg-bgDark1 w-full lg:mt-16 mb-8 lg:mb-16">
+  <div>
+    <div
+      class="container px-4 mx-auto 2xl:w-[1280px] xl:w-[1100px] lg:w-[1000px] md:w-4/5"
+    >
+      <div
+        class="flex lg:flex-row flex-col items-center -mx-4 justify-center lg:text-left text-center relative"
+      >
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+          <div class="flex flex-col relative z-10">
+            <LabelSection text="Certificación" class="mb-5" />
+            <h2
+              class="mb-2 text-4xl sm:text-5xl 2xl:text-5xl font-semibold font-Jakarta tracking-normal text-primaryText"
+            >
+              Respaldados por
+            </h2>
+            <h2
+              class="text-4xl sm:text-5xl 2xl:text-5xl font-semibold font-Jakarta tracking-normal text-transparent bg-gradient-to-br from-neutral-100 via-40% via-pshyellow-80 to-red-500 to-80% bg-[100%_auto] bg-clip-text"
+            >
+              excelencia certificada
+            </h2>
+          </div>
+        </div>
+        <div
+          class="w-2/3 sm:w-[620px] lg:w-1/2 mx-auto lg:mx-0 lg:pl-10 text-primaryText text-center"
+        >
+          <h3 class="mb-8">Certificacion nacional e internacional</h3>
+          <Marquee collection={marqueeCollection} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

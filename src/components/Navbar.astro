@@ -1,0 +1,64 @@
+---
+import PshTextLogo from "@assets/PshTextLogo.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+
+const navbarLinks = [
+  { label: "Inicio", href: "/", ariaLabel: "Inicio" },
+  { label: "Servicios", href: "/#Servicios", ariaLabel: "Servicios" },
+  { label: "Eventos", href: "/eventos", ariaLabel: "Eventos" },
+  { label: "Blog", href: "/blog", ariaLabel: "Blog" },
+  { label: "Contacto", href: "/contacto", ariaLabel: "Contacto" },
+];
+---
+
+<div
+  class="w-full h-20 flex flex-col justify-center items-center fixed bg-bgDark1 lg:bg-bgDarkTransparent z-40 lg:backdrop-blur-xl"
+  aria-label="Main navigation"
+>
+  <Astronav closeOnClick>
+    <div
+      class="2xl:w-[1280px] xl:w-10/12 w-11/12 flex justify-between items-center
+    relative mx-auto"
+    >
+      <!-- logo -->
+      <div>
+        <a href="/#home" aria-label="Home">
+          <div class="flex justify-start items-center grow basis-0">
+            <PshTextLogo />
+          </div>
+        </a>
+      </div>
+
+      <MenuItems class="hidden lg:block h-full w-full pb-2 mx-auto">
+        <ul class="lg:flex w-full mx-auto justify-center">
+          {
+            navbarLinks.map(({ href, label, ariaLabel }) => (
+              <li class="text-white lg:text-base text-2xl  leading-6 mr-4 ml-4   2xl:mr-6 2xl:ml-6 cursor-pointer font-normal lg:font-medium hover:scale-110 transition h-full pt-2">
+                <a href={href} aria-label={ariaLabel}>
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </MenuItems>
+
+      <div class="grow basis-0 justify-end hidden lg:flex">
+        <a
+          class="text-white main-border-gray rounded-xl
+           bg-bgDark2 hover:bg-bgDark3 border-gray-700 pl-6 pr-8 pt-2 pb-2 text-sm flex"
+          href="#"
+          target="_blank"
+          aria-label="Ingresar a la Plataforma"
+        >
+          <span class="pt-px">Plataforma</span>
+        </a>
+      </div>
+
+      <MenuIcon
+        class="lg:hidden flex w-8 h-8 p-1 rounded-md text-gray-400 border border-gray-600"
+      />
+    </div>
+    {/* Mobile navbar */}
+  </Astronav>
+</div>

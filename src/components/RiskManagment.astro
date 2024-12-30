@@ -1,0 +1,35 @@
+---
+import Buttom from "@components/Buttom.astro";
+import LabelSection from "@components/LabelSection.astro";
+---
+
+<section class="w-screen flex justify-center mt-24">
+  <div class="xl:w-10/12 w-11/12 2xl:w-[1280px]">
+    <header class="w-full text-center mb-16 mx-auto lg:ml-0 lg:mr-0">
+      <LabelSection text="Gestión de riesgos" class="mb-1" />
+
+      <h2
+        class="mt-3 mb-6 text-4xl lg:text-6xl font-Jakarta font-normal font-heading text-primaryText"
+      >
+        Gestión de <span
+          class="bg-gradient-to-tr from-primaryText via-red-400 to-primaryText text-transparent bg-clip-text"
+          >emergencias</span
+        > industriales
+      </h2>
+      <p class="mb-6 text-secondaryText text-xl">
+        Nuestra formación profesional y trayectoria junto con la experiencia en
+        emergencias, permiten la creación de este servicio para brindar
+        soluciones concretas, centralizando todo en esta propuesta para su
+        beneficio.
+      </p>
+      <Buttom text="Conocé más" href="#" class="w-max mx-auto" />
+    </header>
+    <div>
+      <img
+        src="/services/gestion-riesgos.svg"
+        alt="Gestión de riesgos"
+        class="mx-auto"
+      />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+---
+import industryService from "../assets/images/industry.webp";
+import constructService from "../assets/images/construct.webp";
+import agroService from "../assets/images/agro.webp";
+import pymeService from "../assets/images/pyme.webp";
+import BentoGrid from "./BentoGrid.astro";
+import BentoItem from "./BentoItem.astro";
+import LabelSection from "./LabelSection.astro";
+
+const blogData = [
+  {
+    title: "Industrias",
+    subtitle:
+      "Brindamos asesoramiento técnico externo y nos especializamos en Gestión de Emergencias Industriales®. Somos expertos en la formación profesional de Brigadas Industriales acorde a los riesgos existentes bajo normas nacionales e internacionales.",
+    image: industryService.src,
+    className: "lg:col-span-7",
+  },
+  {
+    title: "Demolición y construcción",
+    subtitle:
+      "Más de veinte años realizando trabajos de construcción, demolición, excavación y movimientos de suelo en grandes obras.",
+    image: constructService.src,
+    className: "lg:col-span-5",
+  },
+  {
+    title: "Medianas empresas",
+    subtitle:
+      "Somos el eslabón que le falta a su cadena de producción para mejorar las condiciones laborales y el rendimiento.",
+    image: pymeService.src,
+    className: "lg:col-span-5",
+  },
+  {
+    title: "Trabajo rural",
+    subtitle:
+      "Plan de emergencia personalizado acorde a sus necesidades, entendiendo que los tiempos de respuesta en el campo no son los mismos que en un lugar urbano y preparamos al personal para actuar ante situaciones de emergencias",
+    image: agroService.src,
+    className: "lg:col-span-7",
+  },
+];
+---
+
+<section class="w-screen flex justify-center">
+  <div class="xl:w-10/12 w-11/12 2xl:w-[1280px]">
+    <header class="w-full text-center mb-16 mx-auto lg:ml-0 lg:mr-0">
+      <LabelSection text="Servicio externo" class="mb-6" />
+      <img
+        src="/services/ServicesSimbols.svg"
+        alt="Servicios"
+        class="mx-auto w-[512px]"
+      />
+      <h2
+        class="mt-5 mb-6 text-4xl lg:text-6xl font-Jakarta font-normal font-heading text-primaryText"
+      >
+        Seguridad e higiene
+      </h2>
+      <p class="mb-6 text-secondaryText text-xl">
+        + 20 años de experiencia en la prevención de riesgos laborales
+      </p>
+    </header>
+    <BentoGrid>
+      {
+        blogData.map(({ title, subtitle, image, className }) => (
+          <BentoItem
+            title={title}
+            subtitle={subtitle}
+            imageSrc={image}
+            class={className}
+          />
+        ))
+      }
+    </BentoGrid>
+  </div>
+</section>

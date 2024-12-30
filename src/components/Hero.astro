@@ -1,0 +1,127 @@
+---
+import dashboard from "@assets/images/dashboard.jpg";
+import backgroundImage from "@assets/images/Energy-sector-refinery-.jpg";
+import Escudo from "./Escudo.astro";
+---
+
+<section
+  class="w-screen h-full relative flex justify-center mb-[28vw] md:mb-[18vw] lg:mb-[10vw] xl:mb-[13vw] 2xl:mb-60 hero-bg-gradient pb-24 sm:pb-32 md:pb-44 lg:pb-0"
+  id="home"
+>
+  <div
+    class="absolute inset-0 z-[0] w-full h-full"
+    style="clip-path: polygon(0 0, 100% 0, 100% 55%, 50% 80%, 0 55%);"
+  >
+    <div
+      class="absolute inset-0 z-[0] w-full h-full bg-cover bg-center bg-no-repeat brightness-[.25] grayscale"
+      style={`background-image: url('${backgroundImage.src}');  `}
+      id="heroBackground"
+    >
+    </div>
+    <div
+      id="circleMask"
+      class="absolute inset-0 pointer-events-none bg-bgDark1"
+      style="background: radial-gradient(circle, rgba(0, 0, 0, 0) 5%, rgb(26, 28, 30) 20%);"
+    >
+    </div>
+  </div>
+  <div
+    class="w-full md:w-[800px] z-10 xl:w-[900px] flex flex-col items-center pt-16 md:pt-16 lg:pt-20 text-center bg-transparent"
+  >
+    <Escudo class="mt-4" />
+    <h3
+      class="text-secondaryColor text-sm sm:text-base mb-6 sm:mt-4 mt-4 font-bold"
+    >
+      Prevención SH
+    </h3>
+
+    <div
+      class="text-3xl sm:text-5xl lg:text-7xl xl:text-7xl font-bold tracking-wide text-primaryText px-8 sm:px-8 md:px-20 lg:px-4"
+    >
+      <h1 class="inline md:hidden font-Jakarta font-bold text-4xl sm:text-5xl">
+        Seguridad
+      </h1>
+      <h1
+        class="hidden font-Jakarta font-bold md:inline text-5xl lg:text-6xl xl:text-7xl"
+      >
+        Servicio de seguridad
+      </h1>
+    </div>
+    <h1
+      class="mt-2 sm:mt-2 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-Jakarta font-bold tracking-wide text-primaryText px-8 sm:px-20 md:px-24 lg:px-24"
+    >
+      y salud ocupacional
+    </h1>
+
+    <h3
+      class="animate-fade animate-duration-[2000ms] animate-delay-500 animate-ease-in-out animate-normal animate-fill-backwards bg-gradient-to-r from-neutral-400 via-neutral-50 to-neutral-400 bg-clip-text leading-tight text-transparent max-w-3xl justify-center text-center mx-auto mt-5 text-lg px-6"
+    >
+      20 años brindando soluciones para distintos tipos de industrias. Somos el
+      partner que necesita para preservar la calidad de vida de sus
+      colaboradores y la continuidad laboral.
+    </h3>
+
+    <div class="relative w-screen flex justify-center mt-16">
+      <img
+        src={dashboard.src}
+        alt="Dashboard image"
+        class="w-4/5 2xl:w-[1200px] mx-auto absolute z-10 rounded-xl main-border-gray hero-dashboard-border-gradient lg:top-6 xl:top-0"
+      />
+    </div>
+
+    <!-- <div class="relative w-screen flex justify-center">
+      <div
+        class="shape-divider-bottom-1665343298 mt-4 sm:mt-16 md:mt-52 hidden lg:block"
+      >
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          class="bg-transparent"
+        >
+          <path d="M1200 0L0 0 598.97 114.72 1200 0z" class="fill-bgDark1"
+          ></path>
+        </svg>
+      </div>
+    </div> -->
+  </div>
+</section>
+
+<script>
+  let heroBackground: HTMLDivElement;
+  let animationFrame: number;
+  let circleMask: HTMLDivElement;
+
+  const handleMouseMove = (event: MouseEvent) => {
+    const { clientX, clientY } = event;
+    const { offsetWidth, offsetHeight } = heroBackground;
+
+    // Calcula la posición relativa del mouse
+    const x = (clientX / offsetWidth) * 100;
+    const y = (clientY / offsetHeight) * 100;
+
+    // Usa requestAnimationFrame para actualizar el clip-path
+    if (animationFrame) cancelAnimationFrame(animationFrame);
+    animationFrame = requestAnimationFrame(() => {
+      circleMask.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(0, 0, 0, 0) 5%, rgb(26, 28, 30) 20%)`;
+    });
+  };
+
+  const initEffect = () => {
+    heroBackground = document.querySelector(
+      "#heroBackground"
+    ) as HTMLDivElement;
+    circleMask = document.querySelector("#circleMask") as HTMLDivElement;
+    if (!heroBackground) return;
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  };
+
+  // Ejecuta el efecto al cargar
+  initEffect();
+</script>

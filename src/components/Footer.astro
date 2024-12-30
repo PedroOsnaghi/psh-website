@@ -1,0 +1,104 @@
+---
+import { Icon } from "astro-icon/components";
+import Escudo from "./Escudo.astro";
+
+const footerData = [
+  {
+    title: "Productos",
+    items: ["Servicios", "Acerca de PSH", "Eventos", "Blog"],
+  },
+  {
+    title: "Links Importantes",
+    items: [
+      "Organization Team",
+      "Our Journeys",
+      "Pricing Plans",
+      "Roadmap",
+      "Terms & Conditions",
+      "Privacy Policy",
+    ],
+  },
+  {
+    title: "Empresa",
+    items: ["Acerca de PSH", "Trabajos", "Contacto"],
+  },
+];
+---
+
+<footer aria-label="Site footer">
+  <div class="pt-10 lg:pt-20 lg:pb-16 bg-bgDark1 radius-for-skewed">
+    <div
+      class="container mx-auto px-4 w-4/5 md:w-11/12 lg:w-10/12 xl:w-4/5 2xl:w-2/3"
+    >
+      <div class="flex flex-wrap">
+        <div class="w-full lg:w-1/3 mb-16 lg:mb-0">
+          <div
+            class="flex justify-center lg:justify-start items-center grow basis-0"
+          >
+            <Escudo class="w-1/5" />
+          </div>
+          <p
+            class="mb-10 mt-4 sm:w-[22rem] lg:w-[20rem] xl:w-[24rem] text-gray-400 leading-loose text-center lg:text-left mx-auto lg:mx-0"
+          >
+            Seguinos en nuestras redes sociales para estar al tanto de todas las
+            novedades.
+          </p>
+          <div class="w-36 mx-auto lg:mx-0 flex">
+            <a
+              class="inline-block w-10 h-10 mr-2 p-2 pt-[0.55rem] outlined-button"
+              href="#"
+              aria-label="Facebook"
+            >
+              <Icon name="social-f" class="w-5 h-5" />
+            </a>
+            <a
+              class="inline-block w-10 h-10 mr-2 p-2 pt-[0.55rem] pl-[0.55rem] outlined-button"
+              href="#"
+              aria-label="Twitter"
+            >
+              <Icon name="social-x" class="w-5 h-5" />
+            </a>
+            <a
+              class="inline-block w-10 h-10 mr-2 p-2 pt-[0.55rem] pl-[0.55rem] outlined-button"
+              href="#"
+              aria-label="Instagram"
+            >
+              <Icon name="social-in" class="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+        <div
+          class="w-full lg:w-2/3 lg:pl-16 hidden lg:flex flex-wrap justify-between"
+        >
+          {
+            footerData.map(({ title, items }) => (
+              <div class="w-full md:w-1/3 lg:w-auto mb-16 md:mb-0">
+                <h3 class="mb-6 text-2xl font-bold text-primaryText">
+                  {title}
+                </h3>
+                <ul>
+                  {items.map((item, index) => (
+                    <li class="mb-4">
+                      <a
+                        class="text-gray-400 hover:text-gray-300"
+                        href="#"
+                        aria-label={item}
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="flex border-t-[1px] border-neutral-400 mt-6">
+        <div class="w-full text-center py-6 text-gray-400">
+          <p>© 2024 PSH. Hecho con ♥️ por Pedro Osnaghi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

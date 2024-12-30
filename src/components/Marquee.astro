@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  collection: string[];
+  class?: string;
+}
+
+const { collection, class: className } = Astro.props;
+---
+
+<div class="overflow-hidden relative">
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-bgDark1 from-5% via-transparent to-bgDark1 to-98% z-10"
+  >
+  </div>
+  <div class="marquee flex space-x-8">
+    {collection.map((logo) => <img src={logo} class="h-16 w-auto " />)}
+    {collection.map((logo) => <img src={logo} class="h-16 w-auto " />)}
+  </div>
+</div>
+
+<style>
+  .marquee {
+    animation: scroll 10s linear infinite;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-151%);
+    }
+  }
+</style>
