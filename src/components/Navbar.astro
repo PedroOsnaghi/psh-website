@@ -1,6 +1,6 @@
 ---
-import PshTextLogo from "@assets/PshTextLogo.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import Escudo from "./Escudo.astro";
 
 const navbarLinks = [
   { label: "Inicio", href: "/", ariaLabel: "Inicio" },
@@ -24,7 +24,7 @@ const navbarLinks = [
       <div>
         <a href="/#home" aria-label="Home">
           <div class="flex justify-start items-center grow basis-0">
-            <PshTextLogo />
+            <Escudo class="nav-logo w-12 h-12 filter grayscale" />
           </div>
         </a>
       </div>

@@ -2,14 +2,18 @@
 interface Props {
   text: string;
   class?: string;
+  id?: string;
+  bgClass?: string;
 }
-const { text, class: className } = Astro.props;
+const { text, class: className, id, bgClass } = Astro.props;
 ---
 
 <span
+  id={id}
   class:list={[
-    "bg-gradient-to-br from-primaryText from-20% via-neutral-400 to-neutral-300 to-80%  bg-clip-text leading-tight text-transparent border border-neutral-400 px-4 py-2 rounded-3xl w-max inline-block relative overflow-hidden",
+    "bg-gradient-to-br from-primaryText from-20% via-neutral-400 to-neutral-300 to-80%  bg-clip-text leading-tight text-transparent  ",
     className,
   ]}
-  >{text}
-</span>
+>
+  {text}</span
+>

@@ -1,39 +1,52 @@
 ---
 import dashboard from "@assets/images/dashboard.jpg";
 import backgroundImage from "@assets/images/Energy-sector-refinery-.jpg";
-import Escudo from "./Escudo.astro";
+import Escudo from "@components/Escudo.astro";
+import LabelSection from "@components/LabelSection.astro";
+import { HoverBorderGradient } from "./hover-border-gradient";
 ---
 
 <section
-  class="w-screen h-full relative flex justify-center mb-[28vw] md:mb-[18vw] lg:mb-[10vw] xl:mb-[13vw] 2xl:mb-60 hero-bg-gradient pb-24 sm:pb-32 md:pb-44 lg:pb-0"
+  class="w-screen h-full relative flex justify-center mb-[28vw] md:mb-[18vw] lg:mb-20 xl:mb-20 2xl:mb-24 hero-bg-gradient pb-16 lg:pb-0"
   id="home"
 >
   <div
     class="absolute inset-0 z-[0] w-full h-full"
     style="clip-path: polygon(0 0, 100% 0, 100% 55%, 50% 80%, 0 55%);"
   >
-    <div
+    <!-- <div
       class="absolute inset-0 z-[0] w-full h-full bg-cover bg-center bg-no-repeat brightness-[.25] grayscale"
       style={`background-image: url('${backgroundImage.src}');  `}
       id="heroBackground"
     >
-    </div>
+    </div> -->
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="absolute inset-0 z-[0] w-full h-full object-cover"
+      id="heroVideo"
+    >
+      <source src="/videos/hero-video.webm" type="video/webm" />
+    </video>
     <div
       id="circleMask"
       class="absolute inset-0 pointer-events-none bg-bgDark1"
-      style="background: radial-gradient(circle, rgba(0, 0, 0, 0) 5%, rgb(26, 28, 30) 20%);"
+      style="background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 5%, rgb(26, 28, 30) 20%);"
     >
     </div>
   </div>
   <div
     class="w-full md:w-[800px] z-10 xl:w-[900px] flex flex-col items-center pt-16 md:pt-16 lg:pt-20 text-center bg-transparent"
   >
-    <Escudo class="mt-4" />
-    <h3
-      class="text-secondaryColor text-sm sm:text-base mb-6 sm:mt-4 mt-4 font-bold"
+    <Escudo class="my-4 lg:w-24 lg:h-24" id="hero-escudo" />
+    <HoverBorderGradient
+      containerClassName="rounded-full mx-auto mb-6  border-neutral-600"
+      client:load
     >
-      Prevención SH
-    </h3>
+      <LabelSection text="Prevención SH" id="psh-label" class="lg:text-lg" />
+    </HoverBorderGradient>
 
     <div
       class="text-3xl sm:text-5xl lg:text-7xl xl:text-7xl font-bold tracking-wide text-primaryText px-8 sm:px-8 md:px-20 lg:px-4"
@@ -54,7 +67,8 @@ import Escudo from "./Escudo.astro";
     </h1>
 
     <h3
-      class="animate-fade animate-duration-[2000ms] animate-delay-500 animate-ease-in-out animate-normal animate-fill-backwards bg-gradient-to-r from-neutral-400 via-neutral-50 to-neutral-400 bg-clip-text leading-tight text-transparent max-w-3xl justify-center text-center mx-auto mt-5 text-lg px-6"
+      id="hero-description"
+      class="bg-gradient-to-r from-neutral-400 via-neutral-50 to-neutral-400 bg-clip-text leading-tight text-transparent max-w-3xl justify-center text-center mx-auto mt-5 text-lg px-6"
     >
       20 años brindando soluciones para distintos tipos de industrias. Somos el
       partner que necesita para preservar la calidad de vida de sus
@@ -89,9 +103,13 @@ import Escudo from "./Escudo.astro";
 </section>
 
 <script>
-  let heroBackground: HTMLDivElement;
+  import { gsap } from "gsap/gsap-core";
+  let heroBackground: HTMLVideoElement;
   let animationFrame: number;
   let circleMask: HTMLDivElement;
+  let heroEscudo: SVGElement;
+  let heroDescription: HTMLHeadingElement;
+  let pshLabel: HTMLSpanElement;
 
   const handleMouseMove = (event: MouseEvent) => {
     const { clientX, clientY } = event;
@@ -104,16 +122,13 @@ import Escudo from "./Escudo.astro";
     // Usa requestAnimationFrame para actualizar el clip-path
     if (animationFrame) cancelAnimationFrame(animationFrame);
     animationFrame = requestAnimationFrame(() => {
-      circleMask.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(0, 0, 0, 0) 5%, rgb(26, 28, 30) 20%)`;
+      circleMask.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(0, 0, 0, 0.5) 5%, rgb(26, 28, 30) 25%)`;
     });
   };
 
   const initEffect = () => {
-    heroBackground = document.querySelector(
-      "#heroBackground"
-    ) as HTMLDivElement;
+    heroBackground = document.querySelector("#heroVideo") as HTMLVideoElement;
     circleMask = document.querySelector("#circleMask") as HTMLDivElement;
-    if (!heroBackground) return;
 
     window.addEventListener("mousemove", handleMouseMove);
 
@@ -122,6 +137,33 @@ import Escudo from "./Escudo.astro";
     };
   };
 
+  const startAnimation = () => {
+    heroEscudo = document.querySelector("#hero-escudo") as SVGElement;
+    heroDescription = document.querySelector(
+      "#hero-description"
+    ) as HTMLHeadingElement;
+    pshLabel = document.querySelector("#psh-label") as HTMLSpanElement;
+
+    gsap.fromTo(
+      pshLabel,
+      { opacity: 0, y: 25, delay: 0.3 },
+      { opacity: 1, y: 0, duration: 0.5 }
+    );
+
+    gsap.fromTo(
+      heroEscudo,
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 0.5, delay: 0.5 }
+    );
+
+    gsap.fromTo(
+      heroDescription,
+      { opacity: 0, y: 100 },
+      { opacity: 1, y: 0, duration: 0.9, delay: 0.8, ease: "power1.out" }
+    );
+  };
+
   // Ejecuta el efecto al cargar
   initEffect();
+  startAnimation();
 </script>

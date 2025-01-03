@@ -11,7 +11,7 @@ export default {
 				secondaryText: "rgb(174, 178, 183)",
 				bgDark1: "var(--bg-dark1)",
 				bgDark2: "rgb(23, 24, 26)",
-				bgDark3: "rgb(48, 49, 54)",
+				bgDark3: "rgb(36, 37, 42)",
 				bgDark3Hover: "rgb(55, 56, 62)",
 				bgDarkTransparent: "rgb(31, 32, 35, 0.7)",
 				bgDarkTransparentDarker: "rgb(0,0,0,0.5)",
@@ -25,7 +25,7 @@ export default {
 				}
 			  },
 			fontFamily: {
-				Inter: "Inter",
+				Inter: "Inter Variable",
 				Jakarta: "Plus Jakarta Sans Variable"
 			  },
 			  screens: {

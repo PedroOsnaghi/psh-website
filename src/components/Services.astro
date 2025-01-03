@@ -1,11 +1,12 @@
 ---
-import industryService from "../assets/images/industry.webp";
-import constructService from "../assets/images/construct.webp";
-import agroService from "../assets/images/agro.webp";
-import pymeService from "../assets/images/pyme.webp";
-import BentoGrid from "./BentoGrid.astro";
-import BentoItem from "./BentoItem.astro";
-import LabelSection from "./LabelSection.astro";
+import industryService from "@assets/images/industry.webp";
+import constructService from "@assets/images/construct.webp";
+import agroService from "@assets/images/agro.webp";
+import pymeService from "@assets/images/pyme.webp";
+import BentoGrid from "@components/BentoGrid.astro";
+import BentoItem from "@components/BentoItem.astro";
+import LabelSection from "@components/LabelSection.astro";
+import { HoverBorderGradient } from "./hover-border-gradient";
 
 const blogData = [
   {
@@ -39,24 +40,39 @@ const blogData = [
 ];
 ---
 
-<section class="w-screen flex justify-center">
+<section class="section w-screen flex justify-center">
   <div class="xl:w-10/12 w-11/12 2xl:w-[1280px]">
     <header class="w-full text-center mb-16 mx-auto lg:ml-0 lg:mr-0">
-      <LabelSection text="Servicio externo" class="mb-6" />
+      <HoverBorderGradient
+        containerClassName="rounded-full mx-auto mb-6 border-neutral-600"
+        client:load
+      >
+        <LabelSection text="Servicio externo" />
+      </HoverBorderGradient>
+
       <img
         src="/services/ServicesSimbols.svg"
         alt="Servicios"
-        class="mx-auto w-[512px]"
+        class="section-image mx-auto w-[512px]"
       />
       <h2
-        class="mt-5 mb-6 text-4xl lg:text-6xl font-Jakarta font-normal font-heading text-primaryText"
+        class="mt-5 mb-6 text-4xl lg:text-6xl font-Jakarta font-normal font-heading text-primaryText flex justify-center items-center gap-3
+        leading-[1.3!important]"
       >
-        Seguridad e higiene
+        <span class="section-title">Seguridad</span><span class="section-title"
+          >e
+        </span>
+        <span class="section-title">higiene</span>
+        <span
+          class="section-title text-transparent bg-gradient-to-br from-neutral-100 via-40% via-pshyellow-80 to-red-500 to-80% bg-[130%_130%] bg-clip-text"
+          >laboral</span
+        >
       </h2>
       <p class="mb-6 text-secondaryText text-xl">
         + 20 años de experiencia en la prevención de riesgos laborales
       </p>
     </header>
+
     <BentoGrid>
       {
         blogData.map(({ title, subtitle, image, className }) => (

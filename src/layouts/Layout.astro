@@ -2,6 +2,7 @@
 import "@fontsource-variable/inter";
 import "@fontsource-variable/plus-jakarta-sans";
 import { siteConfig } from "@config/site-config";
+import "@styles/lenis.css";
 
 export interface Props {
   title?: string;
@@ -12,7 +13,7 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="dark">
+<html lang="es" class="dark lenis lenis-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -35,3 +36,6 @@ const { title, description } = Astro.props;
     font-family: "Inter", sans-serif;
   }
 </style>
+<script>
+  import "@lib/lenisSmoothScroll.js";
+</script>
