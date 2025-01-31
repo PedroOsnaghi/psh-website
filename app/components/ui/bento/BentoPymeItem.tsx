@@ -6,7 +6,6 @@ import { PymeErgonomia } from "./bentoGraphics/PymeErgonomia";
 import { PymeMedicion } from "./bentoGraphics/PymeMedicion";
 import PymeImage from "@assets/image/pyme.webp";
 import PymeWireframe from "@assets/image/wireframe_pyme.webp";
-import { motion } from "framer-motion";
 import { Card } from "./Card";
 
 interface BentoPymeItemProps {
