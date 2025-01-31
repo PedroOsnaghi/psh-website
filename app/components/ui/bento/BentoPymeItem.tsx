@@ -20,8 +20,6 @@ export const BentoPymeItem = ({
   isSwiper = false,
   hoverable = false,
 }: BentoPymeItemProps) => {
-  const [isHovered, setIsHovered] = React.useState(false);
-
   return (
     <Card
       className={cn([

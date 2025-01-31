@@ -4,7 +4,6 @@ import React from "react";
 import { RuralIcon } from "./bentoGraphics/RuralIcon";
 import RuralImage from "@assets/image/rural.webp";
 import WireframeRuralImage from "@assets/image/wireframe_rural.webp";
-import { motion } from "framer-motion";
 import { Card } from "./Card";
 
 interface BentoRuralItemProps {
@@ -18,7 +17,6 @@ export const BentoRuralItem = ({
   isSwiper = false,
   hoverable = false,
 }: BentoRuralItemProps) => {
-  const [isHovered, setIsHovered] = React.useState(false);
   return (
     <Card
       className={cn([

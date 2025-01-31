@@ -22,7 +22,7 @@ export const CardSlider = ({ children, className }: CardSliderProps) => {
       // onSlideChange={() => console.log("slide change")}
       // onSwiper={(swiper) => console.log(swiper)}
     >
-      {React.Children.map(children, (child, index) => (
+      {React.Children.map(children, (child) => (
         <SwiperSlide>{child}</SwiperSlide>
       ))}
     </Swiper>

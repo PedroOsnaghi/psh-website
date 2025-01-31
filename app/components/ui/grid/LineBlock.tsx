@@ -1,5 +1,5 @@
 import { cn } from "@/libs/utils";
-import React, { PropsWithChildren } from "react";
+import React from "react";
 
 interface LineBlockProps {
   children: React.ReactNode;

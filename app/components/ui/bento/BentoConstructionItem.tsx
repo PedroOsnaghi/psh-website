@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { ConstructExperienceIcon } from "./bentoGraphics/ConstructExperienceIcon";
 import { ConstructIcon } from "./bentoGraphics/ConstructIcon";
 import ConstructImage from "@assets/image/construct.webp";
 import WireframeConstructImage from "@assets/image/wireframe_construct.webp";
 import { cn } from "@/libs/utils";
-import { motion, useInView } from "framer-motion";
 import { Card } from "./Card";
 
 interface BentoConstructionItemProps {

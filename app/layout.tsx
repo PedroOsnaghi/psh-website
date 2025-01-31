@@ -37,7 +37,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jakarta.variable} antialiased bg-dark-2 font-Inter isolate`}
       >
-        <ScrollProvider>
+        <LenisScrollProvider>
           <div className="isolate">
             <div className="max-w-screen overflow-x-hidden">
               <ScrollProvider>
@@ -52,7 +52,7 @@ export default function RootLayout({
               </ScrollProvider>
             </div>
           </div>
-        </ScrollProvider>
+        </LenisScrollProvider>
       </body>
     </html>
   );
