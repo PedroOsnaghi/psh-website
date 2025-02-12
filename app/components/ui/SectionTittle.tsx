@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "@/libs/utils";
 import { motion, useInView } from "framer-motion";
-import { filter } from "framer-motion/client";
 import React, { useRef } from "react";
 
 interface SectionTittleProps {

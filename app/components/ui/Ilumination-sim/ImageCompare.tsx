@@ -30,8 +30,8 @@ export const ImageCompare = ({ onSlide }: ImageCompareProps) => {
 
   const handlePositionChange = useCallback(
     (position: number) => {
-      setIsDragging((prev) => true);
-      setTimeout(() => setIsDragging((prev) => false), 3000);
+      setIsDragging(true);
+      setTimeout(() => setIsDragging(false), 3000);
 
       if (Math.abs(position - currentPosition) > 0.3) {
         onSlide?.(position);

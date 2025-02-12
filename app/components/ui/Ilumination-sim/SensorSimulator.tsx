@@ -70,20 +70,6 @@ const ClockSimulator = ({
   const count = useMotionValue(465);
   const rounded = useTransform(() => Math.round(count.get()));
 
-  const loadVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 1,
-        repeat: Infinity,
-        type: "linear",
-        ease: "step",
-        repeatType: "loop",
-      },
-    },
-  };
-
   useEffect(() => {
     setOpacity(0);
     if (positionSlide > 50) {
@@ -99,7 +85,7 @@ const ClockSimulator = ({
       { duration: 1, repeat: Infinity, ease: "linear" }
     );
 
-    const controls = animate(count, frames, {
+    animate(count, frames, {
       duration: 5,
       delay: 1,
       type: "spring",
@@ -113,7 +99,6 @@ const ClockSimulator = ({
     }
   }, [isLoading, frames, count]);
 
-  useEffect(() => {}, []);
   return (
     <div className="absolute top-25 left-[43px] grid place-items-center h-32 gap-4   bg-sky-700 ">
       <div className="flex flex-col justify-center w-full mx-auto  p-2">

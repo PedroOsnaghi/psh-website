@@ -150,10 +150,13 @@ const data = [
           </p>
           <p className="text-secondary-text relative  text-sm mt-4 leading-relaxed z-40">
             Dicha resolución exige la realización de mediciones confiables,
-            documentadas en el "Protocolo para la Medición del Valor de Puesta a
-            Tierra y la Verificación de la Continuidad de las Masas en el
-            Ambiente Laboral", asegurando así la protección de los trabajadores
-            frente a riesgos eléctricos.
+            documentadas en el{" "}
+            <span className="text-primary-text font-semibold">
+              Protocolo para la Medición del Valor de Puesta a Tierra y la
+              Verificación de la Continuidad de las Masas en el Ambiente Laboral
+            </span>
+            , asegurando así la protección de los trabajadores frente a riesgos
+            eléctricos.
           </p>
           <p className="text-secondary-text relative  text-sm mt-4 leading-relaxed z-40">
             Para ello, contamos con equipamiento de última generación, calibrado
