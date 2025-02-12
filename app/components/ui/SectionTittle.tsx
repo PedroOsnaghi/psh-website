@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/libs/utils";
 import { motion, useInView } from "framer-motion";
+import { filter } from "framer-motion/client";
 import React, { useRef } from "react";
 
 interface SectionTittleProps {
@@ -24,10 +25,10 @@ export const SectionTittle = ({
     margin: "-25%",
   });
   const defaultVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, filter: "blur(5px)" },
     visible: {
       opacity: 1,
-      y: 0,
+      filter: "blur(0px)",
       transition: { duration: 0.5, ease: "linear" },
     },
   };

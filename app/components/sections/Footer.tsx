@@ -42,7 +42,7 @@ export const Footer = () => {
                   Seguinos en nuestras redes sociales para estar al tanto de
                   todas las novedades.
                 </p>
-                <div className="w-36 mx-auto lg:mx-0 flex">
+                <div className="w-36 mx-auto lg:mx-0 mb-4 lg:mb-0 flex">
                   <a
                     className="inline-block w-10 h-10 mr-2 p-2 pt-[0.55rem] outlined-button"
                     href="#"

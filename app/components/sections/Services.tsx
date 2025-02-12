@@ -15,7 +15,7 @@ import { LineTags } from "../ui/grid/LineTags";
 
 export const Services = () => {
   return (
-    <section className="isolate grid overflow-x-hidden">
+    <section className="isolate grid overflow-x-hidden lg:overflow-visible">
       <div>
         <header className="flex flex-col justify-center text-center">
           <LineTags tags={["riesgo", "#00896", "mediciones", "industrias"]} />

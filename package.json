@@ -13,11 +13,13 @@
     "@heroui/react": "^2.6.14",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dseg": "^0.46.0",
     "framer-motion": "^11.18.1",
     "lenis": "^1.1.20",
     "next": "15.1.5",
     "npm": "^11.1.0",
     "react": "^19.0.0",
+    "react-compare-slider": "^3.1.0",
     "react-dom": "^19.0.0",
     "swiper": "^11.2.1",
     "tailwind-merge": "^2.6.0",
@@ -34,5 +36,6 @@
     "postcss": "^8.5.1",
     "tailwindcss": "^4.0.0",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "pnpm@10.3.0+sha512.ee592eda8815a8a293c206bb0917c4bb0ff274c50def7cbc17be05ec641fc2d1b02490ce660061356bd0d126a4d7eb2ec8830e6959fb8a447571c631d5a2442d"
 }

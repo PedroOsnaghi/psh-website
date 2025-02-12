@@ -1,6 +1,7 @@
 import { Certifications } from "./components/sections/Certifications";
 import { Footer } from "./components/sections/Footer";
 import Hero from "./components/sections/Hero";
+import { EMSection } from "./components/sections/EMSection";
 import { Services } from "./components/sections/Services";
 
 export default function Inicio() {
@@ -9,6 +10,7 @@ export default function Inicio() {
       <Hero />
       <Services />
       <Certifications />
+      <EMSection />
       <Footer />
     </div>
   );

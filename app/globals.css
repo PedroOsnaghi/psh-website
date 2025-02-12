@@ -22,9 +22,11 @@
 
   --color-pshyellow-0: #ffe7b8;
   --color-pshyellow-80: #ffca62;
+  --color-pshred:#FF4C4F;
 
   --font-Inter: var(--font-inter-variable);
   --font-Jakarta: var(--font-jakarta-variable);
+  --font-Digital: var(--font-ds-variable);
 
   --breakpoint-xs: 530px;
   --breakpoint-sm: 640px;
@@ -41,6 +43,9 @@
     355deg,
     var(--tw-gradient-stops)
   );
+
+  --offset: 76.9537353515625px;
+  --midpoint: calc(375px / 2);
 
   @keyframes rotate {
     0% {

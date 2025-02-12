@@ -19,6 +19,7 @@ export const CardSlider = ({ children, className }: CardSliderProps) => {
       className={className}
       spaceBetween={20}
       slidesPerView={1.1}
+
       // onSlideChange={() => console.log("slide change")}
       // onSwiper={(swiper) => console.log(swiper)}
     >
